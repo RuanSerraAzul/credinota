@@ -2,14 +2,14 @@
 //$nome , $email , $cpf , $sexo , $ddd , $telefone , $endereco , $bairro  , $valor , ''"
 $nome = $_POST['nome'];
 $email = $_POST['email'];
-$cpf = $_POST['CPF'];
+$cpf = $_POST['cpf'];
 $sexo = $_POST['sexo'];
 $ddd = $_POST['ddd'];
 $telefone = $_POST['telefone'];
 $endereco = $_POST['endereco'];
 $bairro = $_POST['bairro'];
+$loja = $_POST['loja'];
 $valor = $_POST['valor'];
-
 $link = mysqli_connect("localhost", "root", "",);
  
 if (!$link) {
@@ -19,7 +19,7 @@ if (!$link) {
     exit;
 }
  
-echo "Sucesso: Sucesso ao conectar-se com a base de dados MySQL." . PHP_EOL;
+/*echo "Sucesso: Sucesso ao conectar-se com a base de dados MySQL." . PHP_EOL;*/
  
 
 
@@ -27,8 +27,8 @@ $banco = mysqli_select_db($link,'credinota'); // nome da tabela onde os dados se
 
 
 //Query que realiza a inserção dos dados no banco de dados na tabela indicada acima
-$query = mysqli_query($link, " INSERT INTO `clientes`(`nome`, `email`, `cpf`, `sexo`, `ddd`, `telefone`, `endereço`, `bairro`, `valor`, `id`)  
-    VALUES ('$nome', '$email', '$cpf' , '$sexo', '$ddd', '$telefone', '$endereco', '$bairro', '$valor' ,'')");
+$query = mysqli_query($link, " INSERT INTO `clientes`(`nome`, `email`, `cpf`, `sexo`, `ddd`, `telefone`, `endereço`, `bairro`, `loja`, `valor`, `id`)  
+    VALUES ('$nome', '$email', '$cpf' , '$sexo', '$ddd', '$telefone', '$endereco', '$bairro', '$loja', '$valor' ,'')");
 
 
 /*if($query):
