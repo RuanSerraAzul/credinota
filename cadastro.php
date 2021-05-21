@@ -9,9 +9,12 @@ $telefone = $_POST['telefone'];
 $endereco = $_POST['endereco'];
 $bairro = $_POST['bairro'];
 $loja = $_POST['loja'];
+$talao = $_POST['talao'];
 $valor = $_POST['valor'];
-$link = mysqli_connect("localhost", "root", "",);
+$link = mysqli_connect("localhost", "root", "", "credinota");
  
+//conectar ao DB
+
 if (!$link) {
     echo "Error: Falha ao conectar-se com o banco de dados MySQL." . PHP_EOL;
     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
@@ -21,17 +24,15 @@ if (!$link) {
  
 /*echo "Sucesso: Sucesso ao conectar-se com a base de dados MySQL." . PHP_EOL;*/
  
-
-
-$banco = mysqli_select_db($link,'credinota'); // nome da tabela onde os dados serão armazenados;
+$banco = mysqli_select_db($link,'credinota'); // nome do banco onde os dados serão armazenados;
 
 
 //Query que realiza a inserção dos dados no banco de dados na tabela indicada acima
-$query = mysqli_query($link, " INSERT INTO `clientes`(`nome`, `email`, `cpf`, `sexo`, `ddd`, `telefone`, `endereço`, `bairro`, `loja`, `valor`, `id`)  
-    VALUES ('$nome', '$email', '$cpf' , '$sexo', '$ddd', '$telefone', '$endereco', '$bairro', '$loja', '$valor' ,'')");
+$query = mysqli_query($link, "INSERT INTO `clientes` (`nome`, `email`, `cpf`, `sexo`, `ddd`, `telefone`, `endereço`, `bairro`, `loja`, `talao`, `valor`, `id`)  
+    VALUES ('$nome', '$email', '$cpf' , '$sexo', '$ddd', '$telefone', '$endereco', '$bairro', '$loja', '$talao', '$valor' ,'')");
 
-
-/*if($query):
+/*
+if($query):
     echo "Cadastrado com sucesso!";
  else:
     echo "Deu algo errado.";
@@ -46,5 +47,11 @@ $query = mysqli_query($link, " INSERT INTO `clientes`(`nome`, `email`, `cpf`, `s
 //São apenas as variaveis a qual eu atribui os valores digitados no formulário.
 
 //mensagem que é escrita quando os dados são inseridos normalmente.
+
 mysqli_close($link);
+echo ('<H1> 
+Cadastro realizado com sucesso!
+</H1>
+<a href="index.html" >Voltar a página inicial</a>') ;
+
 ?>
