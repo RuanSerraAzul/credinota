@@ -31,12 +31,74 @@ $banco = mysqli_select_db($link,'credinota'); // nome do banco onde os dados ser
 $query = mysqli_query($link, "INSERT INTO `clientes` (`nome`, `email`, `cpf`, `sexo`, `ddd`, `telefone`, `endereço`, `bairro`, `loja`, `talao`, `valor`, `id`)  
     VALUES ('$nome', '$email', '$cpf' , '$sexo', '$ddd', '$telefone', '$endereco', '$bairro', '$loja', '$talao', '$valor' ,'')");
 
-/*
+
 if($query):
-    echo "Cadastrado com sucesso!";
+    echo ('
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-- #########  NAVBAR  #######-->
+
+	<div class="container">
+
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
+			<a class="navbar-brand" href="#">CREDINOTA</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto topnav">
+					<li class="nav-item active">
+						<a class="nav-link" href="index.html">CADASTRO<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="Consulta.html">CONSULTA</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
+					</li>
+
+				</ul>
+			</div>
+		</nav><H1> 
+Cadastro realizado com sucesso!
+</H1>
+<a href="index.html" >Voltar a página inicial</a>') ;
  else:
-    echo "Deu algo errado.";
- endif; */
+    echo '
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-- #########  NAVBAR  #######-->
+
+	<div class="container">
+
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
+			<a class="navbar-brand" href="#">CREDINOTA</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto topnav">
+					<li class="nav-item active">
+						<a class="nav-link" href="index.html">CADASTRO<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="Consulta.html">CONSULTA</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
+					</li>
+
+				</ul>
+			</div>
+		</nav>
+    <H1> Deu algo errado. tente novamente, consulte se o CPF já esta cadastrado </H1>';
+ endif; 
 
 //$query = nome da variável que utilizarei para realizar a operação de inserção dos dados
 //clientes = nome da tabela que será salvo os dados do cadastro do cliente
@@ -49,9 +111,6 @@ if($query):
 //mensagem que é escrita quando os dados são inseridos normalmente.
 
 mysqli_close($link);
-echo ('<H1> 
-Cadastro realizado com sucesso!
-</H1>
-<a href="index.html" >Voltar a página inicial</a>') ;
+
 
 ?>
