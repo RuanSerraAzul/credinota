@@ -1,7 +1,7 @@
 <?php
 
 // as variáveis login e senha recebem os dados digitados na página anterior
-$loja = $_POST['loja'];
+$login = $_POST['loja'];
 $senha = $_POST['senha'];
 // session_start inicia a sessão
 session_start();
@@ -20,7 +20,7 @@ else {
 // A variavel $result pega as varias $login e $senha, faz uma
 //pesquisa na tabela de usuarios
 $result = mysqli_query($link, "SELECT * FROM `lojas`
-    WHERE `loja` = '$loja' 
+    WHERE `loja` = '$login' 
     AND `senha`= '$senha' " ) 
     or die ("Erro ao retornar dados");
 
