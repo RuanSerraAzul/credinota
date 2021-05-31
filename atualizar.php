@@ -13,8 +13,7 @@
 	  <div class="container">
 		
 		
-		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;
-">
+		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
 			<a class="navbar-brand" href="#">CREDINOTA</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -28,7 +27,6 @@
 					<li class="nav-item">
 						<a class="nav-link" href="Consulta.html">CONSULTA</a>
 					</li>
-					
 					<li class="nav-item">
 						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 					</li>
@@ -77,8 +75,66 @@
 				
 	
 		</nav>
-<h1>
-    DESCONTAR CREDINOTA; WADS
-</h1>
+ <!-- Criando tabela e cabeçalho de dados: -->
+ <table border="10" style='width:100%'>
+ <tr>
+ <th>CPF</th>
+ <th>Nome</th>
+ <th>Compra realizada na loja: </th>
+ <th>Valor</th>
+ <th>Talões registrados </th>
+ <th>Contato </th>
+
+ </tr>
+
+ <!-- Preenchendo a tabela com os dados do banco: -->
+
+	<?php
+
+ //conectar ao db
+    $link = mysqli_connect("localhost", "root", "", "credinota",);
+        if (!$link) {
+                echo "Error: Falha ao conectar-se com o banco de dados MySQL." . PHP_EOL;
+                echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+                echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+                exit;
+                }
+                                
+            
+
+  // Recebendo os dados a pesquisar
+  $pesquisa = $_POST['cpf'];
+ $resultado = mysqli_query($link, "SELECT * FROM clientes WHERE cpf = '$pesquisa'") or die ("Erro ao retornar dados");
  
- 
+
+ // Obtendo os dados por meio de um loop while
+ while ($registro =mysqli_fetch_array($resultado))
+ {
+   $cpf = $registro['cpf'];
+   $nome = $registro['nome'];
+   $loja = $registro['loja'];
+   $valor = $registro['valor'];
+   $talao = $registro['talao'];
+   $ddd = $registro['ddd'];
+   $contato = $registro['telefone'];
+   echo "<tr>";
+   echo "<td>".$cpf."</td>";
+   echo "<td>".$nome."</td>";
+   echo "<td>".$loja."</td>";
+   echo "<td>R$".$valor."</td>";
+   echo "<td>".$talao."</td>";
+   echo "<td>".$ddd. " ".$contato."</td>";
+   echo "</tr>";
+ }
+ echo "</table>";
+ mysqli_close($link);
+?>
+<h2>
+			<br>
+			<br>
+			<button >
+					<a href="atualizar.html">  Atualizar cadastro  </a>
+			</button> 
+		</h2> 
+</body>
+</html>

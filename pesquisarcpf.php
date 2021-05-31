@@ -14,8 +14,7 @@
 	  <div class="container">
 		
 		
-		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;
-">
+		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
 			<a class="navbar-brand" href="#">CREDINOTA</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -78,7 +77,7 @@
 	
 		</nav>
  <!-- Criando tabela e cabeçalho de dados: -->
- <table border="10" style='width:50%'>
+ <table border="10" style='width:100%'>
  <tr>
  <th>CPF</th>
  <th>Nome</th>
@@ -90,7 +89,8 @@
  </tr>
 
  <!-- Preenchendo a tabela com os dados do banco: -->
- <?php
+
+	<?php
 
  //conectar ao db
     $link = mysqli_connect("localhost", "root", "", "credinota",);
@@ -130,5 +130,12 @@
  echo "</table>";
  mysqli_close($link);
 ?>
+<h2>
+			<br>
+			<br>
+			<button >
+					<a href="atualizar.html">  Atualizar cadastro  </a>
+			</button> 
+		</h2> 
 </body>
 </html>
