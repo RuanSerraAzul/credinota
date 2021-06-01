@@ -1,5 +1,4 @@
 <?php
-
 // as variáveis login e senha recebem os dados digitados na página anterior
 $login = $_POST['loja'];
 $senha = $_POST['senha'];
@@ -34,12 +33,12 @@ if(mysqli_num_rows ($result) > 0 )
 {
 $_SESSION['login'] = $login;
 $_SESSION['senha'] = $senha;
-header('location:cadastroloja.html');
+header('location:cadastroloja.php');
 }
 else{
   unset ($_SESSION['login']);
   unset ($_SESSION['senha']);
-  header('location:consulta.html');
-
+  header('location:login.html');
   }
+
 ?>
