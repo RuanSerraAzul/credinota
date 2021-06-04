@@ -2,6 +2,7 @@
 <meta charset="utf-8">
 <head>
     <?php
+    
 /* esse bloco de código em php verifica se existe a sessão, pois o usuário pode
  simplesmente não fazer o login e digitar na barra de endereço do seu navegador
 o caminho para a página principal do site (sistema), burlando assim a obrigação de
@@ -27,14 +28,14 @@ session_start();
     
 </head>
 <body>
-    <form method="POST" action="cadastrovenda.php" target="_blank">
+    <form method="POST" action="cadastrovendas.php">
         <table>
           <tbody><tr>
               <td>CPF do cliente:</td>
                   <td><input required id="cpf" name="cpf" onkeydown="javascript: fMasc( this, mCPF );" maxlength = "14" placeholder="000.000.000-00" onblur="ValidaCPF()"/>
                       <span class="style1">*</span></td>
                 </tr>
-              <tr>
+                <tr>
                 <td>DDD:</td>
                   <td><input required id="ddd" name="ddd" size="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                   type = "number" maxlength = "2" />
