@@ -25,7 +25,51 @@ session_start();
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="jquery-1.2.6.pack.js"></script>
 	<script type="text/javascript" src="jquery.maskedinput-1.1.4.pack.js"></script>
-    
+  <script type="text/javascript">
+		$(document).ready(function(){
+			$("#cep").mask("99999-999");
+		});
+		</script>
+	<script>
+		function mCEP(cep){
+				cep=cep.replace(/\D/g,"")
+				cep=cep.replace(/^(\d{2})(\d)/,"$1.$2")
+				cep=cep.replace(/\.(\d{3})(\d)/,".$1-$2")
+				return cep; }
+	</script>
+      <script>
+function ValidaCPF(){	
+	var RegraValida=document.getElementById("cpf").value; 
+	var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))$/;	 
+	if (cpfValido.test(RegraValida) == true)	{ 
+	console.log("CPF Válido");	
+	} else	{	 
+	console.log("CPF Inválido");	
+	}
+    }
+  function fMasc(objeto,mascara) {
+obj=objeto
+masc=mascara
+setTimeout("fMascEx()",1)
+}
+
+  function fMascEx() {
+obj.value=masc(obj.value)
+}
+
+   function mCPF(cpf){
+cpf=cpf.replace(/\D/g,"")
+cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+return cpf
+}
+function mCEP(cep){
+				cep=cep.replace(/\D/g,"")
+				cep=cep.replace(/^(\d{2})(\d)/,"$1.$2")
+				cep=cep.replace(/\.(\d{3})(\d)/,".$1-$2")
+				return cep; }
+      </script>
 </head>
 <body>
     <form method="POST" action="cadastrovendas.php">
