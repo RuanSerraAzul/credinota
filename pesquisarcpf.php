@@ -5,7 +5,7 @@
  <head>
     <link link rel="stylesheet" type="text/css" href="style.css"/>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
  <title>Resultado da pesquisa</title>
  <?php
 	$link = mysqli_connect("localhost", "root", "", "credinota");
@@ -42,7 +42,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 					</li>
-			
+					<li>
+					<a href="login.html"> <i class="fa fa-key" style="font-size: 40px; color: white;" aria-hidden="false"></i> </a>
+					</li>
 				</ul>
 			</div>
 	

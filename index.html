@@ -2,6 +2,7 @@
 <meta charset="utf-8"
 <html>
   <head>
+	  <!-- links e scripts-->
     <link link rel="stylesheet" type="text/css" href="style.css"/>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -13,6 +14,7 @@
 			$("#cep").mask("99999-999");
 		});
 		</script>
+		<!-- Mascara CEP-->
 	<script>
 		function mCEP(cep){
 				cep=cep.replace(/\D/g,"")
@@ -20,6 +22,7 @@
 				cep=cep.replace(/\.(\d{3})(\d)/,".$1-$2")
 				return cep; }
 	</script>
+	<!-- Mascara CPF-->
       <script>
 function ValidaCPF(){	
 	var RegraValida=document.getElementById("cpf").value; 
@@ -54,6 +57,7 @@ function mCEP(cep){
 				return cep; }
       </script>
         
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
 	  <!-- #########  NAVBAR  #######-->
@@ -65,8 +69,7 @@ function mCEP(cep){
 			<a class="navbar-brand" href="#">CREDINOTA</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
-			</button>
-	
+			</button>	
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto topnav">
 					<li class="nav-item active">
@@ -79,15 +82,15 @@ function mCEP(cep){
 					<li class="nav-item">
 						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 					</li>
-			
+					<li>
+						<a href="login.html"> <i class="fa fa-key" style="font-size: 40px; color: white;" aria-hidden="false"></i> </a>
+						</li>
 				</ul>
 			</div>
-	
 				<!-- The Modal -->
 		<div class="modal" id="myModal">
 			<div class="modal-dialog">
 				<div class="modal-content">
-	
 					<!-- Modal Header -->
 					<div class="modal-header">
 						<h4 class="modal-title">Customer Sign In</h4>
@@ -178,50 +181,6 @@ function mCEP(cep){
       							<td><input required id="cidade" maxlength="20" name="cidade" type="text" />
         							<span class="style1">*</span></td>
     					</tr>
-    					<tr>
-      						<td>Loja</td>
-      							<td><select required id="loja" name="loja">
-        							<option value="null">Selecione...</option>
-        							<option value="01">01</option>
-        							<option value="02">02</option>
-       								<option value="03">03</option>
-       								<option value="04">04</option>
-									<option value="05">05</option>
-									<option value="06">06</option>
-									<option value="07">07</option>
-									<option value="08">08</option>
-									<option value="09">09</option>
-									<option value="10">10</option>
-									<option value="11">11</option>
-									<option value="12">12</option>
-									<option value="13">13</option>
-									<option value="14">14</option>
-									<option value="15">15</option>
-									<option value="16">16</option>
-									<option value="17">17</option>
-									<option value="18">18</option>
-									<option value="19">19</option>
-									<option value="20">20</option>
-									<option value="21">21</option>
-									<option value="22">22</option>
-									<option value="23">23</option>
-									<option value="24">24</option>
-									<option value="25">25</option>
-													</select>
-        			<span class="style1">*      </span></td>
-    						</tr>
-							<tr>
-								<td>Talão:</td>
-									<td><input required id="talao" maxlength="20" name="talao" type="text" />
-									  <span class="style1">*</span></td>
-						  </tr>
-    						<tr>
-    				<td>Valor da compra</td>
-					<td><input required id="valor" name="valor" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-    				type = "number" step=0.001 placeholder="R$" maxlength="10" />
-					<span class="style1">*</span></td>
-					
-    						</tr>
    							<tr>
     							<td colspan="2"><p>
     						<input id="cadastrar" name="cadastrar" type="submit"  value="Cadastrar" /> 

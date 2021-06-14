@@ -3,6 +3,22 @@
 <meta charset="utf-8">
 
 <head>
+	<!-- Configurar Sessão, pois apenas úsuarios autorizados podem verificar cadastros de Credinota -->  
+    <?php
+    //conectar ao banco de dados
+    $link = mysqli_connect("localhost", "root", "", "credinota");
+	
+    //iniciar sessão
+    session_start();
+    //verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
+    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+    {
+    unset($_SESSION['login']);
+    unset($_SESSION['senha']);
+    header('location:login.html');
+    }
+    $logado = $_SESSION['login'];
+    ?>
 	<style>
 		.container {
 			width: 700px;

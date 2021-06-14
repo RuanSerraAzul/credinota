@@ -3,8 +3,24 @@
  <link href="estilos.css" rel="stylesheet" type="text/css">
  <head>
     <link link rel="stylesheet" type="text/css" href="style.css"/>
+	<!-- Boostrap icone--> 
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
+<!-- Configurar Sessão, pois apenas úsuarios autorizados podem verificar histórico de Credinota -->  
+<?php
+    //conectar ao banco de dados
+    $link = mysqli_connect("localhost", "root", "", "credinota");
+	
+    //iniciar sessão
+    session_start();
+    //verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
+    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+    {
+    unset($_SESSION['login']);
+    unset($_SESSION['senha']);
+    header('location:login.html');
+    }
+    $logado = $_SESSION['login'];
+    ?>
  <title>Resultado da pesquisa</title>
  </head>
  <body>
@@ -127,6 +143,7 @@
    echo "</tr>";
  }
  echo "</table>";
+ //Encerrar conexao
  mysqli_close($link);
 ?>
 <h2>

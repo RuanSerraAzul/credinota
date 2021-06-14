@@ -28,8 +28,8 @@ $banco = mysqli_select_db($link,'credinota'); // nome do banco onde os dados ser
 
 
 //Query que realiza a inserção dos dados no banco de dados na tabela indicada acima
-$query = mysqli_query($link, "INSERT INTO `clientes` (`nome`, `email`, `cpf`, `sexo`, `ddd`, `telefone`, `endereço`, `bairro`, `loja`, `talao`, `valor`, `id`)  
-    VALUES ('$nome', '$email', '$cpf' , '$sexo', '$ddd', '$telefone', '$endereco', '$bairro', '$loja', '$talao', '$valor' ,'')");
+$query = mysqli_query($link, "INSERT INTO `clientes` (`nome`, `email`, `cpf`, `sexo`, `ddd`, `telefone`, `endereço`, `valor`, `id`)  
+    VALUES ('$nome', '$email', '$cpf' , '$sexo', '$ddd', '$telefone', '$endereco', '$bairro','')");
 
 
 if($query):
@@ -59,20 +59,19 @@ if($query):
 					<li class="nav-item">
 						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 					</li>
-
 				</ul>
-			</div>
-		</nav><H1> 
-Cadastro realizado com sucesso!
-</H1>
-<a href="index.html" >Voltar a página inicial</a>') ;
- else:
-    echo '
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <!-- #########  NAVBAR  #######-->
+				</div>
+			</nav><H1> 
+	Cadastro realizado com sucesso!
+	</H1>
+	<a href="index.html" >Voltar a página inicial</a>') ;
+	else:
+		echo '
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+		<!-- #########  NAVBAR  #######-->
 
-	<div class="container">
+		<div class="container">
 
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">

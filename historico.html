@@ -2,31 +2,17 @@
  <head>
  <link href="estilos.css" rel="stylesheet" type="text/css">
  <head>
-    <link link rel="stylesheet" type="text/css" href="style.css"/>
+	<link link rel="stylesheet" type="text/css" href="style.css"/>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <!-- Configurar Sessão, pois apenas úsuarios autorizados podem verificar histórico de Credinota -->  
-    <?php
-    //conectar ao banco de dados
-    $link = mysqli_connect("localhost", "root", "", "credinota");
-    //iniciar sessão
-    session_start();
-    //verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
-    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-    {
-    unset($_SESSION['login']);
-    unset($_SESSION['senha']);
-    header('location:login.html');
-    }
-    $logado = $_SESSION['login'];
-    ?>
+	
+	
  <title>Resultado da pesquisa</title>
  </head>
  <body>
   <!-- #########  NAVBAR  #######-->
 
-	  <div class="container">
-		
-		
+	  <div class="container"
 		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
 			<a class="navbar-brand" href="#">CREDINOTA</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +30,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 					</li>
-			
+					<li>
+					<a href="login.html"> <i class="fa fa-key" style="font-size: 40px; color: white;" aria-hidden="false"></i> </a>
+					</li>
 				</ul>
 			</div>
 	
@@ -84,16 +72,16 @@
 			</div>
 		</div>;
 	</nav>
-    <!-- Criando tabela e cabeçalho de dados: -->
+	<!-- Criando tabela e cabeçalho de dados: -->
  <table border="10" style='width:100%'>
-    <tr>
-    <th>CPF</th>
-    <th>Nome</th>
-    <th>Valor Total comprado </th>
-    <th>Credinota Disponível</th>
-    <th>Contato </th>
+ <h3> Insira aqui o CPF que deseja buscar</h3>
+			<form action="#" method="POST">
+				<input required id="cpf" name="cpf" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14"
+					placeholder="000.000.000-00">
+				<input type="submit" value="Consultar" name="pesquisar" id="pesquisar">
 
 <?php
 //pegar dados 
-
+$link = mysqli_connect("localhost", "root", "", "credinota");
+$query = mysqli_query($link, "SELECT  * FROM `vendas` WHERE cpf = '$pesquisa'") or die ("Erro ao retornar dados de vendas");
 ?>

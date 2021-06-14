@@ -18,24 +18,20 @@ $valor = $_POST['valor'];
 $pegarnome = mysqli_query($link, "SELECT nome FROM clientes WHERE cpf = '$cpf'");                           
 while ($coleta = mysqli_fetch_array($pegarnome))                           
 {                            
-	$nome = $coleta ['nome'];                           
- }; 
+	$nome = $coleta ['nome'];                         
+ }
 $loja = $_SESSION['login'];
 echo '<br>';
 $valor;
-
 if (!$link) {
     echo "Error: Falha ao conectar-se com o banco de dados MySQL." . PHP_EOL;
     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
     exit;
 }
- 
-
 //Query que realiza a inserção dos dados no banco de dados na tabela indicada acima
 $query = mysqli_query($link, "INSERT into `vendas`(`cliente`, `cpf`, `ddd`, `telefone`, `talao`, `loja`, `valor`)
 	VALUES ('$nome', '$cpf', '$ddd', '$telefone', '$talao', '$loja', '$valor');");
-
 
 if (!$query) {
 	echo "Error: <br>." . PHP_EOL;
@@ -43,7 +39,6 @@ if (!$query) {
 	echo "Debugging error: " . mysqli_error($link). PHP_EOL;
 	exit;
 	};
-
 if($query):
     echo ('
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -57,7 +52,6 @@ if($query):
 				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto topnav">
 					<li class="nav-item active">

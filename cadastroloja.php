@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-    <?php
-    
-/* esse bloco de código em php verifica se existe a sessão, pois o usuário pode
- simplesmente não fazer o login e digitar na barra de endereço do seu navegador
-o caminho para a página principal do site (sistema), burlando assim a obrigação de
-fazer um login, com isso se ele não estiver feito o login não será criado a session,
-então ao verificar que a session não existe a página redireciona o mesmo
- para a index.php.*/
-
-session_start();
+   <!-- Configurar Sessão, pois apenas úsuarios autorizados podem criar cadastros de Credinota -->  
+   <?php
+    //conectar ao banco de dados
+    $link = mysqli_connect("localhost", "root", "", "credinota");
+    //iniciar sessão
+    session_start();
+    $url = 'login.html';
+    //verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
     {
-        unset($_SESSION['login']);
-        unset($_SESSION['senha']);
-        header('location:login.html');
-  }
+    unset($_SESSION['login']);
+    unset($_SESSION['senha']);
+    echo "<script> alert('Para realizar essa função você precisa estar logado'); </script>";
+    echo "<script language=\"JavaScript\">window.location='" .$url. "';</script>\n";
+    }
     $logado = $_SESSION['login'];
-?>
+    ?>
 <link link rel="stylesheet" type="text/css" href="style.css"/>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -56,7 +55,6 @@ setTimeout("fMascEx()",1)
   function fMascEx() {
 obj.value=masc(obj.value)
 }
-
    function mCPF(cpf){
 cpf=cpf.replace(/\D/g,"")
 cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")

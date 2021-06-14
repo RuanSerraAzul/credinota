@@ -1,5 +1,21 @@
 <html>
 	<head>
+		<!-- Configurar Sessão, pois apenas úsuarios autorizados podem atualizar cadastro de Credinota -->  
+		<?php
+		//conectar ao banco de dados
+		$link = mysqli_connect("localhost", "root", "", "credinota");
+		
+		//iniciar sessão
+		session_start();
+		//verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
+		if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+		{
+		unset($_SESSION['login']);
+		unset($_SESSION['senha']);
+		header('location:login.html');
+		}
+		$logado = $_SESSION['login'];
+		?>
 		<style>
 			.container {
 				width: 700px;
@@ -7,11 +23,14 @@
 				margin-right: auto;
 				text-align: center;
 			}
+			
 		</style>
+		<!--Links e scripts -->
 		<link link rel="stylesheet" type="text/css" href="style.css" />
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- Script de CPF-->
 		<script>
 			function ValidaCPF() {
 				var RegraValida = document.getElementById("cpf").value;
