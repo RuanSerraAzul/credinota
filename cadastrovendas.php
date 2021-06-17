@@ -1,13 +1,18 @@
 <?php
-$link = mysqli_connect("localhost", "root", "", "credinota");
-session_start();
-if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-{
-	unset($_SESSION['login']);
-	unset($_SESSION['senha']);
-	header('location:login.html');
-}
-$logado = $_SESSION['login'];
+    //conectar ao banco de dados
+    $link = mysqli_connect("localhost", "root", "", "credinota");
+    //iniciar sessão
+    session_start();
+    $url = 'login.html';
+    //verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
+    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+    {
+    unset($_SESSION['login']);
+    unset($_SESSION['senha']);
+    echo "<script> alert('Para realizar essa função você precisa estar logado'); </script>";
+    echo "<script language=\"JavaScript\">window.location='" .$url. "';</script>\n";
+    }
+    $logado = $_SESSION['login'];
                            
 //$nome , $email , $cpf , $sexo	 , $ddd , $telefone , $endereco , $bairro  , $valor'"
 $cpf = $_POST['cpf'];                           

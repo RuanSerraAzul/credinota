@@ -8,16 +8,21 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
  <title>Resultado da pesquisa</title>
  <?php
-	$link = mysqli_connect("localhost", "root", "", "credinota");
-	session_start();
-	if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-	{
-		unset($_SESSION['login']);
-		unset($_SESSION['senha']);
-		header('location:login.html');
-	}
-	$logado = $_SESSION['login'];
- ?>
+    //conectar ao banco de dados
+    $link = mysqli_connect("localhost", "root", "", "credinota");
+    //iniciar sessão
+    session_start();
+    $url = 'login.html';
+    //verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
+    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+    {
+    unset($_SESSION['login']);
+    unset($_SESSION['senha']);
+    echo "<script> alert('Para realizar essa função você precisa estar logado'); </script>";
+    echo "<script language=\"JavaScript\">window.location='" .$url. "';</script>\n";
+    }
+    $logado = $_SESSION['login'];
+    ?>
  </head>
  <body>
   <!-- #########  NAVBAR  #######-->
