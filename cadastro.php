@@ -108,7 +108,7 @@ if($query):
 //São apenas as variaveis a qual eu atribui os valores digitados no formulário.
 
 //mensagem que é escrita quando os dados são inseridos normalmente.
-
+//fechar conexão
 mysqli_close($link);
 
 

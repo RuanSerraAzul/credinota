@@ -1,6 +1,7 @@
 
 <html>
  <head>
+	 <!-- Links com os scripts, bootsraps e css's-->
  <link href="estilos.css" rel="stylesheet" type="text/css">
  <head>
     <link link rel="stylesheet" type="text/css" href="style.css"/>

@@ -14,15 +14,15 @@
     }
     $logado = $_SESSION['login'];
 //pegando valores $nome , $email , $cpf , $sexo	 , $ddd , $telefone , $endereco , $bairro  , $valor'"
-$cpf = $_POST['cpf'];                           
-$ddd = $_POST['ddd'];                           
-$telefone = $_POST['telefone'];                           
-$talao = $_POST['talao'];                           
-$valor = $_POST['valor'];                     
-$pegarnome = mysqli_query($link, "SELECT nome FROM clientes WHERE cpf = '$cpf'");                           
+$cpf = $_POST['cpf'];
+$ddd = $_POST['ddd'];
+$telefone = $_POST['telefone'];
+$talao = $_POST['talao'];
+$valor = $_POST['valor'];
+$pegarnome = mysqli_query($link, "SELECT nome FROM clientes WHERE cpf = '$cpf'");
 while ($coleta = mysqli_fetch_array($pegarnome))                           
-{                            
-	$nome = $coleta ['nome'];                         
+{
+	$nome = $coleta ['nome'];
  }
 $loja = $_SESSION['login'];
 echo '<br>';
@@ -49,7 +49,6 @@ if($query):
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <!-- #########  NAVBAR  #######-->
-
 	<div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
 			<a class="navbar-brand" href="#">CREDINOTA</a>
@@ -68,7 +67,6 @@ if($query):
 					<li class="nav-item">
 						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 					</li>
-
 				</ul>
 			</div>
 		</nav><H1> 

@@ -18,6 +18,7 @@
     }
     $logado = $_SESSION['login'];
     ?>
+    <!-- Links de CSS e Bootstrap e Scripts-->
 <link link rel="stylesheet" type="text/css" href="style.css"/>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -29,6 +30,7 @@
 			$("#cep").mask("99999-999");
 		});
 		</script>
+
 	<script>
 		function mCEP(cep){
 				cep=cep.replace(/\D/g,"")

@@ -149,6 +149,7 @@
 <h2>
 			<br>
 			<br>
+			<!-- Botão --> 
 			<button >
 					<a href="atualizar.html">  Atualizar cadastro  </a>
 			</button> 

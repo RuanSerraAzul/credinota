@@ -29,6 +29,7 @@ while ($puxar = mysqli_fetch_array($puxa))
 	$descontado = $puxar['descontado'];                         
  }
 $valordescontado = $descontado+$valor;
+// SE o valor descontado do credinota for menor que 50 reais ex
 if ($descontado<50){
 	echo "<script> alert('Erro, o desconto mínimo de credinota é de 50R$'); </script>";
 }
@@ -36,13 +37,11 @@ else{
 	$insere = mysqli_query($link, "UPDATE `vendas` SET descontado='$valordescontado' WHERE cpf = '$pesquisa'");
 }
 ?>
-
+<!-- Exibir o HTML-->
 <html>
 	<meta charset="utf-8">
  <head>
-
- <head>
- 
+	 <!--Links de scripts, bootstraps e css's --> 
  <link href="estilos.css" rel="stylesheet" type="text/css">
     <link link rel="stylesheet" type="text/css" href="style.css"/>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -120,10 +119,8 @@ function mCEP(cep){
 					<li class="nav-item">
 						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 					</li>
-			
 				</ul>
 			</div>
-	
 				<!-- The Modal -->
 		<div class="modal" id="myModal">
 			<div class="modal-dialog">
