@@ -13,8 +13,7 @@
     echo "<script language=\"JavaScript\">window.location='" .$url. "';</script>\n";
     }
     $logado = $_SESSION['login'];
-                           
-//$nome , $email , $cpf , $sexo	 , $ddd , $telefone , $endereco , $bairro  , $valor'"
+//pegando valores $nome , $email , $cpf , $sexo	 , $ddd , $telefone , $endereco , $bairro  , $valor'"
 $cpf = $_POST['cpf'];                           
 $ddd = $_POST['ddd'];                           
 $telefone = $_POST['telefone'];                           
@@ -37,13 +36,14 @@ if (!$link) {
 //Query que realiza a inserção dos dados no banco de dados na tabela indicada acima
 $query = mysqli_query($link, "INSERT into `vendas`(`cliente`, `cpf`, `ddd`, `telefone`, `talao`, `loja`, `valor`)
 	VALUES ('$nome', '$cpf', '$ddd', '$telefone', '$talao', '$loja', '$valor');");
-
+//exibir mensagem de erro caso não funcione
 if (!$query) {
 	echo "Error: <br>." . PHP_EOL;
 	echo "Debugging errno: " . mysqli_errno($link) . PHP_EOL;
 	echo "Debugging error: " . mysqli_error($link). PHP_EOL;
 	exit;
 	};
+// o que exibir ao query ser realizado
 if($query):
     echo ('
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -85,6 +85,8 @@ Cadastro realizado com sucesso!
 //São apenas as variaveis a qual eu atribui os valores digitados no formulário.
 
 //mensagem que é escrita quando os dados são inseridos normalmente. */
+
+//destruir sessão após realizada a ação
 session_destroy();
 mysqli_close($link);
 ?>

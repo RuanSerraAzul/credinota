@@ -1,24 +1,10 @@
 <html>
 	<meta charset="utf-8">
  <head>
- <?php
-    //conectar ao banco de dados
-    $link = mysqli_connect("localhost", "root", "", "credinota");
-    //iniciar sessão
-    session_start();
-    $url = 'login.html';
-    //verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
-    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-    {
-    unset($_SESSION['login']);
-    unset($_SESSION['senha']);
-    echo "<script> alert('Para realizar essa função você precisa estar logado'); </script>";
-    echo "<script language=\"JavaScript\">window.location='" .$url. "';</script>\n";
-    }
-    $logado = $_SESSION['login'];
-    ?>
- <link href="estilos.css" rel="stylesheet" type="text/css">
+
  <head>
+ 
+ <link href="estilos.css" rel="stylesheet" type="text/css">
     <link link rel="stylesheet" type="text/css" href="style.css"/>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link link rel="stylesheet" type="text/css" href="style.css"/>
@@ -141,6 +127,8 @@ function mCEP(cep){
 		Informe qual CPF está utilizando o desconto de CREDINOTA
 		<form action="descontar.php" method="POST">
 			<input required id="cpf" name="cpf" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14"
-				placeholder="000.000.000-00">
+				placeholder="000.000.000-00"> <br> <br>
+				Informe o quanto de credinota foi descontado<br>
+		<input type="int" name="descontado" id="descontado"  placeholder="R$"> <br> <br>
 			<input type="submit" value="Consultar" name="pesquisar" id="pesquisar">
 		</h1>
