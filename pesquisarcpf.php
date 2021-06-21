@@ -153,9 +153,7 @@ $pegardescontado = mysqli_query($link, "SELECT descontado FROM vendas WHERE cpf 
 			<button >
 					<a href="descontar.html">Descontar Credinota </a>
 			</button> 
-			<button >
-					<a href="historico.html">Verificar Histórico Credinota </a>
-			</button> 
+			
 			<br>  <br> <br> <br>
 			<button >
 					<a href="atualizar.html">  Atualizar cadastro  </a>

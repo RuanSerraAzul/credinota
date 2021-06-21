@@ -1,4 +1,23 @@
 <?php
+ 
+//conectar ao banco de dados
+$link = mysqli_connect("localhost", "root", "", "credinota");
+
+///conectar ao banco de dados
+$link = mysqli_connect("localhost", "root", "", "credinota");
+//iniciar sessão
+session_start();
+$url = 'login.html';
+//verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+{
+unset($_SESSION['login']);
+unset($_SESSION['senha']);
+echo "<script> alert('Para realizar essa função você precisa estar logado'); </script>";
+echo "<script language=\"JavaScript\">window.location='" .$url. "';</script>\n";
+}
+$logado = $_SESSION['login'];
+
 //$nome , $email , $cpf , $sexo , $ddd , $telefone , $endereco , $bairro  , $valor , ''"
 $nome = $_POST['nome'];
 $email = $_POST['email'];
@@ -8,9 +27,7 @@ $ddd = $_POST['ddd'];
 $telefone = $_POST['telefone'];
 $endereco = $_POST['endereco'];
 $bairro = $_POST['bairro'];
-$loja = $_POST['loja'];
-$talao = $_POST['talao'];
-$valor = $_POST['valor'];
+$loja = $logado;
 $link = mysqli_connect("localhost", "root", "", "credinota");
  
 //conectar ao DB
@@ -28,8 +45,8 @@ $banco = mysqli_select_db($link,'credinota'); // nome do banco onde os dados ser
 
 
 //Query que realiza a inserção dos dados no banco de dados na tabela indicada acima
-$query = mysqli_query($link, "INSERT INTO `clientes` (`nome`, `email`, `cpf`, `sexo`, `ddd`, `telefone`, `endereço`, `valor`, `id`)  
-    VALUES ('$nome', '$email', '$cpf' , '$sexo', '$ddd', '$telefone', '$endereco', '$bairro','')");
+$query = mysqli_query($link, "INSERT INTO `clientes` (`nome`, `email`, `cpf`, `sexo`, `ddd`, `telefone`, `endereço`, `bairro`, `loja`, `id`)  
+    VALUES ('$nome', '$email', '$cpf' , '$sexo', '$ddd', '$telefone', '$endereco', '$bairro', '$loja','')");
 
 
 if($query):
