@@ -110,6 +110,4 @@ if($query):
 //mensagem que é escrita quando os dados são inseridos normalmente.
 //fechar conexão
 mysqli_close($link);
-
-
 ?>

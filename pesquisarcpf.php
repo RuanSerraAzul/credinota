@@ -26,12 +26,10 @@
     ?>
  </head>
  <body>
-  <!-- #########  NAVBAR  #######-->
 
-	  <div class="container">
-		
-		
-		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
+  <!-- #########  NAVBAR  #######-->
+	<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
 			<a class="navbar-brand" href="#">CREDINOTA</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -75,8 +73,6 @@
 								</div>
 								<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
 							</div>
-	
-	
 							<label class="sr-only" for="Password">Name</label>
 							<div class="input-group mb-2">
 								<div class="input-group-prepend">
@@ -86,15 +82,10 @@
 							</div>
 						</form>
 					</div>
-	
-				
-	
 				</div>
 			</div>
 		</div>
-				
-	
-		</nav>
+	</nav>
  <!-- Criando tabela e cabeçalho de dados: -->
  <table border="10" style='width:100%'>
  <tr>
@@ -103,13 +94,9 @@
  <th>Valor Total comprado </th>
  <th>Credinota Disponível</th>
  <th>Contato </th>
-
  </tr>
-
  <!-- Preenchendo a tabela com os dados do banco: -->
-
 	<?php
-
  //conectar ao db
     $link = mysqli_connect("localhost", "root", "", "credinota",);
         if (!$link) {
@@ -118,24 +105,26 @@
                 echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
                 exit;
                 }
-                                
-            
-
   // Recebendo os dados a pesquisar
   $pesquisa = $_POST['cpf'];
  $resultado = mysqli_query($link, "SELECT * FROM clientes WHERE cpf = '$pesquisa'") or die ("Erro ao retornar dados");
  $resultadosvendas= mysqli_query($link, "SELECT  * FROM `vendas` WHERE cpf = '$pesquisa'") or die ("Erro ao retornar dados de vendas");
-
-
 // teste para valor total
 //Dando um nome para a coluna que iria receber o total do preço
-
 $retorno = mysqli_query($link, "SELECT sum(valor) AS total FROM `vendas` WHERE cpf = '$pesquisa'");
 while($total = mysqli_fetch_assoc($retorno)){
 $total2 = $total['total'];
 }
-//exibindo dados através de um loop while
+//definindo  sessão
 $loja = $_SESSION['login'];
+//pegar valor que já foi descontado de credinota
+$pegardescontado = mysqli_query($link, "SELECT descontado FROM vendas WHERE cpf = '$pesquisa'");                           
+			while ($coleta = mysqli_fetch_array($pegardescontado))                           
+			{                            
+				$descontado = $coleta ['descontado'];                  
+			 };
+			
+//obter dados gerais através de um loop while
  while ($registro =mysqli_fetch_array($resultado))
  {
    $cpf = $registro['cpf'];
@@ -148,13 +137,14 @@ $loja = $_SESSION['login'];
    echo "<td>".$cpf."</td>";
    echo "<td>".$nome."</td>";
    echo"<td> R$ " .$total2. "</td>";
+   $total3= $total2*$credinota;
+
 //aqui vai credinota total
-   echo "<td>" .($total2*$credinota). ",00 </td>";
+   echo "<td>" .((int)$total3 - (int)$descontado). ",00 </td>";
    echo "<td>".$ddd. " ".$contato."</td>";
    echo "</tr>";
  }
- echo "</table>"; 
- 
+ echo "</table>";
  mysqli_close($link);
 ?>
 <h2>
