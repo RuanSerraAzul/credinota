@@ -106,7 +106,7 @@
                 exit;
                 }
   // Recebendo os dados a pesquisar
-  $pesquisa = $_POST['cpf'];
+ $pesquisa = $_GET['cpf'];
  $resultado = mysqli_query($link, "SELECT * FROM clientes WHERE cpf = '$pesquisa'") or die ("Erro ao retornar dados");
  $resultadosvendas= mysqli_query($link, "SELECT  * FROM `vendas` WHERE cpf = '$pesquisa'") or die ("Erro ao retornar dados de vendas");
 // teste para valor total
@@ -125,7 +125,7 @@ $pegardescontado = mysqli_query($link, "SELECT descontado FROM vendas WHERE cpf 
 			 };
 			
 //obter dados gerais através de um loop while
- while ($registro =mysqli_fetch_array($resultado))
+ while ($registro = mysqli_fetch_array($resultado))
  {
    $cpf = $registro['cpf'];
    $nome = $registro['nome'];

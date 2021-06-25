@@ -1,3 +1,4 @@
+
 <?php
 // as variáveis login e senha recebem os dados digitados na página anterior
 $login = $_POST['loja'];

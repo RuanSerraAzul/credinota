@@ -20,18 +20,16 @@ $valor = $_POST['descontado'];
 //pegar dados 
 $link = mysqli_connect("localhost", "root", "", "credinota");
 $query = mysqli_query($link, "SELECT  * FROM `vendas` WHERE cpf = '$pesquisa'") or die ("Erro ao retornar dados de vendas");
-//adicionar campo credinota descontado onde o cpf for igual ao cpf em que se deseja descontar o credinota
-
 //puxar valor do DB, somar com o da inserção e registrar o novo valor no DB
 $puxa = mysqli_query($link, "SELECT  descontado FROM `vendas` WHERE cpf = '$pesquisa'");
 while ($puxar = mysqli_fetch_array($puxa))                           
 {                            
 	$descontado = $puxar['descontado'];                         
  }
-
  //pegando o valor dísponivel para fazer a verificação do desconto de credinota
  $retorno = mysqli_query($link, "SELECT sum(valor) AS total FROM `vendas` WHERE cpf = '$pesquisa'");
 while($total = mysqli_fetch_assoc($retorno)){
+	//calcular credinota dísponivel (total * valor credinota)
 $disponivel = $total['total'] * 0.025;
 }
 $valordescontado = $descontado+$valor;
@@ -39,9 +37,7 @@ $valordescontado = $descontado+$valor;
  if($valor>$disponivel) {
 	echo "<script> alert('Erro, o valor descontado excede o valor dísponivel')";
  }
- else{
-	
-}
+ //o valor mínimo de desconto é 50 Reais
 if ($descontado<50){
 	echo "<script> alert('Erro, o desconto mínimo de credinota é de 50R$'); </script>";
 }
@@ -91,11 +87,9 @@ else{
 	masc=mascara
 	setTimeout("fMascEx()",1)
 	}
-
 	  function fMascEx() {
 	obj.value=masc(obj.value)
 	}
-
 	   function mCPF(cpf){
 	cpf=cpf.replace(/\D/g,"")
 	cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
@@ -127,7 +121,6 @@ else{
 						<li class="nav-item">
 							<a class="nav-link" href="Consulta.html">CONSULTA</a>
 						</li>
-
 						<li class="nav-item">
 							<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 						</li>
@@ -143,7 +136,6 @@ else{
 							<h4 class="modal-title">Customer Sign In</h4>
 							<button type="button" class="close" data-dismiss="modal">×</button>
 						</div>
-
 						<!-- Modal body -->
 						<div class="modal-body">
 							<form>
@@ -154,8 +146,6 @@ else{
 									</div>
 									<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
 								</div>
-
-
 								<label class="sr-only" for="Password">Name</label>
 								<div class="input-group mb-2">
 									<div class="input-group-prepend">
@@ -175,19 +165,15 @@ else{
 			{                            
 				$nome = $coleta ['nome'];                         
 			 };
+			 //mensagem caso o desconto seja feito
 			 if($insere=true){
 			echo"
-			 
 	        <h1> 
 	            Foi descontado o valor de R$
-	            <!-- Valor descontado -->  
-	            
-				
+	            <!-- Valor descontado -->
 	            $valor
-	            
 	            do(a) Cliente
-	            <!-- Nome do cliente-->  
-	            
+	            <!-- Nome do cliente-->
 	             $nome";
 				}
 				session_destroy();

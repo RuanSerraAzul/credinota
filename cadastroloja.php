@@ -72,6 +72,32 @@ function mCEP(cep){
       </script>
 </head>
 <body>
+<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
+			<a class="navbar-brand" href="#">CREDINOTA</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto topnav">
+					<li class="nav-item active">
+						<a class="nav-link" href="index.html">CADASTRO<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="Consulta.html">CONSULTA</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
+					</li>
+					<li class="nav-item">
+					<a class="nav-link" href="cadastroloja.php"> Cadastro Loja </a>
+					<li>
+					<a href="login.html"> <i class="fa fa-key" style="font-size: 40px; color: white;" aria-hidden="false"></i> </a>
+					</li>
+				</ul>
+			</div>
+		</nav>
     <form method="POST" action="cadastrovendas.php">
         <table>
           <tbody><tr>

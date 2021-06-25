@@ -81,22 +81,45 @@
 				</ul>
 			</div>
 		</nav>
-		<!-- Formulario --> 
-		<div class="container">
-			<h3> Insira aqui o CPF que deseja buscar</h3>
-			<form action="pesquisarcpf.php" method="GET">
-				<input required id="cpf" name="cpf" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14"
-					placeholder="000.000.000-00">
-				<input type="submit" value="Consultar" name="pesquisar" id="pesquisar">
-			</form> <br> <br> 
-				<form action="consultadata.php">
-					<h3>
-						Busque por data de registro de compra </h3>
-						<input type="date" name="data" id="data">  
-						<input type="submit" value="Consultar">
-					
-				</form>
-		</div>
-	</div>
-</body>
-</html>
+		<!-- tabela exibindo registros-->
+		<table border="10" style='width:100%'>
+ <tr>
+ <th>CPF</th>
+ <th>Nome</th>
+ <th>Contato </th>
+ </tr>
+<?php
+	//pegar a data
+	$data = $_GET['data'];
+	//query pegando todos os dados cuja data sejam iguais a da pesquisa
+	$query1= mysqli_query($link, "SELECT * FROM vendas WHERE data = '$data'");
+	if (!$query1) {
+		echo "Error: Falha ao buscar data no banco de dados MySQL." . PHP_EOL;
+		echo "Debugging errno: " . mysqli_errno($link) . PHP_EOL;
+		echo "Debugging error: " . mysqli_error($link) . PHP_EOL;
+		exit;
+		}
+
+//pegar valor que já foi descontado de credinota
+$pegardescontado = mysqli_query($link, "SELECT descontado FROM vendas WHERE data = '$data'");                           
+			while ($coleta = mysqli_fetch_array($pegardescontado))                           
+			{                            
+				$descontado = $coleta ['descontado'];                  
+			 };
+			
+	//fazer tratamento dos dados
+	while ($registro = mysqli_fetch_array($query1))
+	{
+		$cpf = $registro['cpf'];
+		$nome = $registro['cliente'];
+		$ddd = $registro['ddd'];
+		$contato = $registro['telefone'];
+		echo "<tr>";
+		echo "<td>".$cpf."</td>";
+		echo "<td>".$nome."</td>";
+	//aqui vai credinota total
+		echo "<td>".$ddd. " ".$contato."</td>";
+		echo "</tr>";
+		
+	}
+?>

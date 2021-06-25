@@ -45,6 +45,8 @@
 					<li class="nav-item">
 						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 					</li>
+					<li class="nav-item">
+					<a class="nav-link" href="cadastroloja.php"> Cadastro Loja </a>
 					<li>
 					<a href="login.html"> <i class="fa fa-key" style="font-size: 40px; color: white;" aria-hidden="false"></i> </a>
 					</li>
