@@ -3,21 +3,22 @@
 <meta charset="utf-8">
 <head>
 	<!-- Configurar Sessão, pois apenas úsuarios autorizados podem verificar cadastros de Credinota -->  
-    <?php
-    //conectar ao banco de dados
+	<?php
+	//conectar ao banco de dados
     $link = mysqli_connect("localhost", "root", "", "credinota");
-	
     //iniciar sessão
     session_start();
+    $url = 'login.html';
     //verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
     {
     unset($_SESSION['login']);
     unset($_SESSION['senha']);
-    header('location:login.html');
+    echo "<script> alert('Para realizar essa função você precisa estar logado'); </script>";
+    echo "<script language=\"JavaScript\">window.location='" .$url. "';</script>\n";
     }
     $logado = $_SESSION['login'];
-    ?>
+	?>
 	<style>
 		.container {
 			width: 700px;
@@ -82,44 +83,48 @@
 			</div>
 		</nav>
 		<!-- tabela exibindo registros-->
+		<h4> Exibindo registros no Credinota efetuados no dia 
+			<?php 
+				$data = $_GET['data']; 
+				$data = implode("/",array_reverse(explode("-",$data)));
+					echo $data; 
+			?> 
+		</h4>
 		<table border="10" style='width:100%'>
  <tr>
  <th>CPF</th>
  <th>Nome</th>
  <th>Contato </th>
+ <th>Loja em que foi cadastrado</th>
  </tr>
 <?php
 	//pegar a data
 	$data = $_GET['data'];
 	//query pegando todos os dados cuja data sejam iguais a da pesquisa
-	$query1= mysqli_query($link, "SELECT * FROM vendas WHERE data = '$data'");
+	$query1 = mysqli_query($link, "SELECT * FROM vendas WHERE data = '$data'");
 	if (!$query1) {
 		echo "Error: Falha ao buscar data no banco de dados MySQL." . PHP_EOL;
 		echo "Debugging errno: " . mysqli_errno($link) . PHP_EOL;
 		echo "Debugging error: " . mysqli_error($link) . PHP_EOL;
 		exit;
 		}
-
-//pegar valor que já foi descontado de credinota
-$pegardescontado = mysqli_query($link, "SELECT descontado FROM vendas WHERE data = '$data'");                           
-			while ($coleta = mysqli_fetch_array($pegardescontado))                           
-			{                            
-				$descontado = $coleta ['descontado'];                  
-			 };
-			
+	//pegar valor que já foi descontado de credinota
+	$pegardescontado = mysqli_query($link, "SELECT descontado FROM vendas WHERE data = '$data'");                           
+				while ($coleta = mysqli_fetch_array($pegardescontado)){                            
+					$descontado = $coleta ['descontado'];                  
+				};
 	//fazer tratamento dos dados
-	while ($registro = mysqli_fetch_array($query1))
-	{
+	while ($registro = mysqli_fetch_array($query1)){
 		$cpf = $registro['cpf'];
 		$nome = $registro['cliente'];
 		$ddd = $registro['ddd'];
 		$contato = $registro['telefone'];
+		$loja = $registro['loja'];
 		echo "<tr>";
 		echo "<td>".$cpf."</td>";
 		echo "<td>".$nome."</td>";
-	//aqui vai credinota total
 		echo "<td>".$ddd. " ".$contato."</td>";
+		echo "<td>".$loja. "</td>";
 		echo "</tr>";
-		
 	}
 ?>

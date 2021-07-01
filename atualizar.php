@@ -7,20 +7,21 @@
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <!-- Configurar Sessão, pois apenas úsuarios autorizados podem verificar histórico de Credinota -->  
 <?php
-    //conectar ao banco de dados
+	//conectar ao banco de dados
     $link = mysqli_connect("localhost", "root", "", "credinota");
-	
     //iniciar sessão
     session_start();
+    $url = 'login.html';
     //verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
     if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
     {
     unset($_SESSION['login']);
     unset($_SESSION['senha']);
-    header('location:login.html');
+    echo "<script> alert('Para realizar essa função você precisa estar logado'); </script>";
+    echo "<script language=\"JavaScript\">window.location='" .$url. "';</script>\n";
     }
     $logado = $_SESSION['login'];
-    ?>
+	?>
  <title>Resultado da pesquisa</title>
  </head>
  <body>
