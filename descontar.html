@@ -2,6 +2,7 @@
 	<meta charset="utf-8">
  <head>
  <head>
+
 	 <!-- Links de codigos de CSS e Bootstraps e Scripts-->
  <link href="estilos.css" rel="stylesheet" type="text/css">
     <link link rel="stylesheet" type="text/css" href="style.css"/>
@@ -29,7 +30,7 @@
 function ValidaCPF(){	
 	var RegraValida=document.getElementById("cpf").value; 
 	var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))$/;	 
-	if (cpfValido.test(RegraValida) == true)	{ 
+	if (cpfValido.test(RegraValida) == true){ 
 	console.log("CPF Válido");	
 	} else	{	 
 	console.log("CPF Inválido");	
