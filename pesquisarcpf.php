@@ -8,7 +8,7 @@
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
  <title>Resultado da pesquisa</title>
- <?php
+<?php
     //conectar ao banco de dados
     $link = mysqli_connect("localhost", "root", "", "credinota");
     //iniciar sessão
@@ -26,7 +26,6 @@
     ?>
  </head>
  <body>
-
   <!-- #########  NAVBAR  #######-->
 	<div class="container">
 	<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">

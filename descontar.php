@@ -35,7 +35,10 @@ $disponivel = $total['total'] * 0.025;
 $valordescontado = $descontado+$valor;
  //o valor descontado não pode ser maior que o valor dísponivel
  if($valor>$disponivel) {
+	$url1 = 'descontar.html';
 	echo "<script> alert('Erro, o valor descontado excede o valor dísponivel')";
+	echo "<script language=\"JavaScript\">window.location='" .$url1. "';</script>\n";
+
  }
  //o valor mínimo de desconto é 50 Reais
 if ($descontado<50){
@@ -49,8 +52,9 @@ else{
 	<html>
 		<meta charset="utf-8">
 	 <head>
-		 <!--Links de scripts, bootstraps e css's --> 
-	 <link href="estilos.css" rel="stylesheet" type="text/css">
+	 
+		<!--Links de scripts, bootstraps e css's --> 
+	    <link href="estilos.css" rel="stylesheet" type="text/css">
 	    <link link rel="stylesheet" type="text/css" href="style.css"/>
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	    <link link rel="stylesheet" type="text/css" href="style.css"/>
