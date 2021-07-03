@@ -57,7 +57,6 @@ if (rev != parseInt(cpf.charAt(10)))
 return false;
 return true;
 }
-
 function validarCPF(el){
 if( !_cpf(el.value) ){
 alert("CPF Inválido! Favor informar um CPF válido");
@@ -65,17 +64,14 @@ alert("CPF Inválido! Favor informar um CPF válido");
 el.value = "";
 }
 }
-
   function fMasc(objeto,mascara) {
 obj=objeto
 masc=mascara
 setTimeout("fMascEx()",1)
 }
-
   function fMascEx() {
 obj.value=masc(obj.value)
 }
-
    function mCPF(cpf){
 cpf=cpf.replace(/\D/g,"")
 cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
@@ -88,16 +84,12 @@ function mCEP(cep){
 				cep=cep.replace(/^(\d{2})(\d)/,"$1.$2")
 				cep=cep.replace(/\.(\d{3})(\d)/,".$1-$2")
 				return cep; }
-      </script>
-        
+      </script>   
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
 	  <!-- #########  NAVBAR  #######-->
-
 	  <div class="container">
-		
-		
 		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
 			<a class="navbar-brand" href="#">CREDINOTA</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -111,7 +103,6 @@ function mCEP(cep){
 					<li class="nav-item">
 						<a class="nav-link" href="Consulta.html">CONSULTA</a>
 					</li>
-					
 					<li class="nav-item">
 						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 					</li>

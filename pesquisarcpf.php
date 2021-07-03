@@ -33,7 +33,6 @@
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-	
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto topnav">
 					<li class="nav-item active">
@@ -50,18 +49,15 @@
 					</li>
 				</ul>
 			</div>
-	
 				<!-- The Modal -->
 		<div class="modal" id="myModal">
 			<div class="modal-dialog">
 				<div class="modal-content">
-	
 					<!-- Modal Header -->
 					<div class="modal-header">
 						<h4 class="modal-title">Customer Sign In</h4>
 						<button type="button" class="close" data-dismiss="modal">×</button>
 					</div>
-	
 					<!-- Modal body -->
 					<div class="modal-body">
 						<form>
@@ -98,7 +94,7 @@
 	<?php
  //conectar ao db
     $link = mysqli_connect("localhost", "root", "", "credinota",);
-        if (!$link) {
+        if (!$link){
                 echo "Error: Falha ao conectar-se com o banco de dados MySQL." . PHP_EOL;
                 echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
                 echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
@@ -118,14 +114,11 @@ $total2 = $total['total'];
 $loja = $_SESSION['login'];
 //pegar valor que já foi descontado de credinota
 $pegardescontado = mysqli_query($link, "SELECT descontado FROM vendas WHERE cpf = '$pesquisa'");                           
-			while ($coleta = mysqli_fetch_array($pegardescontado))                           
-			{                            
+			while ($coleta = mysqli_fetch_array($pegardescontado)){                            
 				$descontado = $coleta ['descontado'];                  
 			 };
-			
 //obter dados gerais através de um loop while
- while ($registro = mysqli_fetch_array($resultado))
- {
+ while ($registro = mysqli_fetch_array($resultado)){
    $cpf = $registro['cpf'];
    $nome = $registro['nome'];
    $ddd = $registro['ddd'];
@@ -137,7 +130,6 @@ $pegardescontado = mysqli_query($link, "SELECT descontado FROM vendas WHERE cpf 
    echo "<td>".$nome."</td>";
    echo"<td> R$ " .$total2. "</td>";
    $total3= $total2*$credinota;
-
 //aqui vai credinota total
    echo "<td>" .((int)$total3 - (int)$descontado). ",00 </td>";
    echo "<td>".$ddd. " ".$contato."</td>";

@@ -8,8 +8,7 @@
     session_start();
     $url = 'login.html';
     //verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
-    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-    {
+    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)){
     unset($_SESSION['login']);
     unset($_SESSION['senha']);
     echo "<script> alert('Para realizar essa função você precisa estar logado'); </script>";
@@ -24,7 +23,6 @@
 				margin-right: auto;
 				text-align: center;
 			}
-			
 		</style>
 		<!--Links e scripts -->
 		<link link rel="stylesheet" type="text/css" href="style.css" />
@@ -47,11 +45,9 @@
 				masc = mascara
 				setTimeout("fMascEx()", 1)
 			}
-	
 			function fMascEx() {
 				obj.value = masc(obj.value)
 			}
-	
 			function mCPF(cpf) {
 				cpf = cpf.replace(/\D/g, "")
 				cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2")
@@ -61,20 +57,15 @@
 			}
 		</script>
 	</head>
-	
 	<body>
 		<!-- #########  NAVBAR  #######-->
-	
 		<div class="container">
-	
-	
 		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
 				<a class="navbar-brand" href="#">CREDINOTA</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-	
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto topnav">
 						<li class="nav-item active">
@@ -86,7 +77,6 @@
 						<li class="nav-item">
 							<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 						</li>
-	
 					</ul>
 				</div>
 		</nav>

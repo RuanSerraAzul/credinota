@@ -9,8 +9,7 @@
     session_start();
     $url = 'login.html';
     //verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
-    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-    {
+    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)){
     unset($_SESSION['login']);
     unset($_SESSION['senha']);
     echo "<script> alert('Para realizar essa função você precisa estar logado'); </script>";
@@ -30,7 +29,6 @@
 			$("#cep").mask("99999-999");
 		});
 		</script>
-
 	<script>
 		function mCEP(cep){
 				cep=cep.replace(/\D/g,"")
@@ -53,7 +51,6 @@ obj=objeto
 masc=mascara
 setTimeout("fMascEx()",1)
 }
-
   function fMascEx() {
 obj.value=masc(obj.value)
 }
@@ -123,7 +120,6 @@ function mCEP(cep){
                   <td><input required id="valor" name="valor" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                   type = "number" step=0.001 placeholder="R$" maxlength="10" />
                   <span class="style1">*</span></td>
-                  
                           </tr>
                              <tr>
                               <td colspan="2"><p>

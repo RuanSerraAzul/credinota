@@ -22,8 +22,7 @@ $link = mysqli_connect("localhost", "root", "", "credinota");
 $query = mysqli_query($link, "SELECT  * FROM `vendas` WHERE cpf = '$pesquisa'") or die ("Erro ao retornar dados de vendas");
 //puxar valor do DB, somar com o da inserção e registrar o novo valor no DB
 $puxa = mysqli_query($link, "SELECT  descontado FROM `vendas` WHERE cpf = '$pesquisa'");
-while ($puxar = mysqli_fetch_array($puxa))                           
-{                            
+while ($puxar = mysqli_fetch_array($puxa)){                            
 	$descontado = $puxar['descontado'];                         
  }
  //pegando o valor dísponivel para fazer a verificação do desconto de credinota
@@ -38,7 +37,6 @@ $valordescontado = $descontado+$valor;
 	$url1 = 'descontar.html';
 	echo "<script> alert('Erro, o valor descontado excede o valor dísponivel')";
 	echo "<script language=\"JavaScript\">window.location='" .$url1. "';</script>\n";
-
  }
  //o valor mínimo de desconto é 50 Reais
 if ($descontado<50){
@@ -52,7 +50,6 @@ else{
 	<html>
 		<meta charset="utf-8">
 	 <head>
-	 
 		<!--Links de scripts, bootstraps e css's --> 
 	    <link href="estilos.css" rel="stylesheet" type="text/css">
 	    <link link rel="stylesheet" type="text/css" href="style.css"/>
@@ -80,13 +77,13 @@ else{
 	function ValidaCPF(){	
 		var RegraValida=document.getElementById("cpf").value; 
 		var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))$/;	 
-		if (cpfValido.test(RegraValida) == true)	{ 
+		if (cpfValido.test(RegraValida) == true){ 
 		console.log("CPF Válido");	
 		} else	{	 
 		console.log("CPF Inválido");	
 		}
 	    }
-	  function fMasc(objeto,mascara) {
+	  function fMasc(objeto,mascara){
 	obj=objeto
 	masc=mascara
 	setTimeout("fMascEx()",1)

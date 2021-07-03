@@ -27,15 +27,12 @@
  <body>
   <!-- #########  NAVBAR  #######-->
 
-	  <div class="container">
-		
-		
+    <div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
 			<a class="navbar-brand" href="#">CREDINOTA</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-	
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto topnav">
 					<li class="nav-item active">
@@ -47,21 +44,17 @@
 					<li class="nav-item">
 						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 					</li>
-			
 				</ul>
 			</div>
-	
 				<!-- The Modal -->
 		<div class="modal" id="myModal">
 			<div class="modal-dialog">
 				<div class="modal-content">
-	
 					<!-- Modal Header -->
 					<div class="modal-header">
 						<h4 class="modal-title">Customer Sign In</h4>
 						<button type="button" class="close" data-dismiss="modal">×</button>
 					</div>
-	
 					<!-- Modal body -->
 					<div class="modal-body">
 						<form>
@@ -72,8 +65,6 @@
 								</div>
 								<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
 							</div>
-	
-	
 							<label class="sr-only" for="Password">Name</label>
 							<div class="input-group mb-2">
 								<div class="input-group-prepend">
@@ -83,15 +74,10 @@
 							</div>
 						</form>
 					</div>
-	
-				
-	
 				</div>
 			</div>
 		</div>
-				
-	
-		</nav>
+	</nav>
  <!-- Criando tabela e cabeçalho de dados: -->
  <table border="10" style='width:100%'>
  <tr>
@@ -101,13 +87,9 @@
  <th>Valor</th>
  <th>Talões registrados </th>
  <th>Contato </th>
-
  </tr>
-
  <!-- Preenchendo a tabela com os dados do banco: -->
-
 	<?php
-
  //conectar ao db
     $link = mysqli_connect("localhost", "root", "", "credinota",);
         if (!$link) {
@@ -116,17 +98,11 @@
                 echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
                 exit;
                 }
-                                
-            
-
   // Recebendo os dados a pesquisar
   $pesquisa = $_POST['cpf'];
  $resultado = mysqli_query($link, "SELECT * FROM clientes WHERE cpf = '$pesquisa'") or die ("Erro ao retornar dados");
- 
-
  // Obtendo os dados por meio de um loop while
- while ($registro =mysqli_fetch_array($resultado))
- {
+ while ($registro =mysqli_fetch_array($resultado)){
    $cpf = $registro['cpf'];
    $nome = $registro['nome'];
    $loja = $registro['loja'];

@@ -1,7 +1,6 @@
 <html>
 	<meta charset="utf-8">
  <head>
- <head>
 	<?php
     //conectar ao banco de dados
       $link = mysqli_connect("localhost", "root", "", "credinota");
@@ -56,11 +55,9 @@ obj=objeto
 masc=mascara
 setTimeout("fMascEx()",1)
 }
-
   function fMascEx() {
 obj.value=masc(obj.value)
 }
-
    function mCPF(cpf){
 cpf=cpf.replace(/\D/g,"")
 cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
@@ -78,14 +75,12 @@ function mCEP(cep){
  </head>
  <body>
   <!-- #########  NAVBAR  #######-->
-
 	  <div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
 			<a class="navbar-brand" href="#">CREDINOTA</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-	
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto topnav">
 					<li class="nav-item active">
@@ -94,24 +89,20 @@ function mCEP(cep){
 					<li class="nav-item">
 						<a class="nav-link" href="Consulta.html">CONSULTA</a>
 					</li>
-					
 					<li class="nav-item">
 						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 					</li>
-			
 				</ul>
 			</div>
 				<!-- The Modal -->
 		<div class="modal" id="myModal">
 			<div class="modal-dialog">
 				<div class="modal-content">
-	
 					<!-- Modal Header -->
 					<div class="modal-header">
 						<h4 class="modal-title">Customer Sign In</h4>
 						<button type="button" class="close" data-dismiss="modal">×</button>
 					</div>
-	
 					<!-- Modal body -->
 					<div class="modal-body">
 						<form>
@@ -122,8 +113,6 @@ function mCEP(cep){
 								</div>
 								<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
 							</div>
-	
-	
 							<label class="sr-only" for="Password">Name</label>
 							<div class="input-group mb-2">
 								<div class="input-group-prepend">

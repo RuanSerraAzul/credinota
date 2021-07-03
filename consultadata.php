@@ -60,7 +60,6 @@
 </head>
 <body>
 	<!-- #########  NAVBAR  #######-->
-
 	<div class="container">
 	<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
 		<a class="navbar-brand" href="#">CREDINOTA</a>

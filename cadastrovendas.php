@@ -104,14 +104,13 @@ else{
 }
 $pegarnome = mysqli_query($link, "SELECT nome FROM clientes WHERE cpf = '$cpf'");
 //pegando nome do cliente
-while ($coleta = mysqli_fetch_array($pegarnome))                           
-{
+while ($coleta = mysqli_fetch_array($pegarnome)){
 	$nome = $coleta ['nome'];
  }
 $loja = $_SESSION['login'];
 echo '<br>';
 $valor;
-if (!$link) {
+if (!$link){
     echo "Error: Falha ao conectar-se com o banco de dados MySQL." . PHP_EOL;
     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
@@ -171,7 +170,7 @@ if($cpf = $cpfconf){
 
 	//destruir sessão após realizada a ação
 	}
-	else {
+	else{
 		echo "<script> alert(Erro, é impossível adicionar uma venda para uma Pessoa Física que não esta registrada no banco de dados) </script>)";
 	}
 	echo "<script> alert(Erro, é impossível adicionar uma venda para uma Pessoa Física que não esta registrada no banco de dados) </script>)";

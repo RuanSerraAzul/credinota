@@ -9,8 +9,7 @@
     session_start();
     $url = 'login.html';
     //verificar sessão, se as credenciais estiverem corretas exibir a página, caso contrário volta para a página de login
-    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-    {
+    if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)){
     unset($_SESSION['login']);
     unset($_SESSION['senha']);
     echo "<script> alert('Para realizar essa função você precisa estar logado'); </script>";
@@ -22,10 +21,9 @@
     <link link rel="stylesheet" type="text/css" href="style.css"/>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-  </head>
-  <body>
+    </head>
+    <body>
   <!-- Navbar -->
   <div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
