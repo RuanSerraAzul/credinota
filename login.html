@@ -38,11 +38,9 @@ obj=objeto
 masc=mascara
 setTimeout("fMascEx()",1)
 }
-
   function fMascEx() {
 obj.value=masc(obj.value)
 }
-
    function mCPF(cpf){
 cpf=cpf.replace(/\D/g,"")
 cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
@@ -56,15 +54,11 @@ function mCEP(cep){
 				cep=cep.replace(/\.(\d{3})(\d)/,".$1-$2")
 				return cep; }
       </script>
-        
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
 	  <!-- #########  NAVBAR  #######-->
-
 	  <div class="container">
-		
-		
 		<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #00c4ff!important;">
 			<a class="navbar-brand" href="#">CREDINOTA</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,7 +72,6 @@ function mCEP(cep){
 					<li class="nav-item">
 						<a class="nav-link" href="Consulta.html">CONSULTA</a>
 					</li>
-					
 					<li class="nav-item">
 						<a class="nav-link" href="descontar.html">Descontar CREDINOTA</a>
 					</li>
@@ -159,10 +152,8 @@ function mCEP(cep){
 													</select>
         			<span class="style1">*      </span></td>
     						</tr>
-                        
                         <td>Senha </td> <td> <input type="password" name="senha" id="senha"> </td> </tr>
 						<br>
-					
 							<td></td> </tr> <td><input type="submit" value="Entrar"> </td> </tr>
 						</form>
 					</h4>
